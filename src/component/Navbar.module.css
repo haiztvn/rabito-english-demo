@@ -1,0 +1,23 @@
+.nav {
+  width: 100%;
+  /* Đặt chiều rộng của thanh điều hướng là 100% */
+  /* position: absolute; */
+  /* Đặt thanh điều hướng ở vị trí tuyệt đối */
+  top: 0;
+  /* Đặt khoảng cách từ trên cùng của trang đến thanh điều hướng */
+  left: 0;
+  /* Đặt thanh điều hướng ở cạnh trái của trang */
+  z-index: 1000;
+  /* Đảm bảo thanh điều hướng nằm trên các phần tử khác */
+  transition: top 0.3s;
+  /* Hiệu ứng chuyển động mượt mà khi thay đổi thuộc tính top */
+}
+
+.nav.scrolled {
+  position: fixed;
+  /* Đặt thanh điều hướng ở vị trí cố định khi cuộn */
+  top: 0;
+  /* Đặt thanh điều hướng ở phía trên cùng của trang */
+  left: 0;
+  /* Đặt thanh điều hướng ở cạnh trái của trang */
+}

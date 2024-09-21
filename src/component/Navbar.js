@@ -1,0 +1,209 @@
+import React, { useState, useEffect } from 'react';
+import styles from "./Navbar.module.css";
+import classNames from "classnames";
+import { Link, animateScroll as scroll } from 'react-scroll';
+
+const Navbar = () => {
+    const [isMobileNavActive, setIsMobileNavActive] = useState(false);
+    const [isFeaturesDropdownOpen, setIsFeaturesDropdownOpen] = useState(false);
+    const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 150); // Điều chỉnh trạng thái navbar khi cuộn
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+    
+    const toggleMobileNav = () => {
+        setIsMobileNavActive(!isMobileNavActive);
+    };
+
+    const toggleFeaturesDropdown = () => {
+        setIsFeaturesDropdownOpen(!isFeaturesDropdownOpen);
+    };
+
+    const toggleLanguageDropdown = () => {
+        setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+    };
+
+    return (
+        <nav className={classNames(styles.nav, { [styles.scrolled]: scrolled })}>
+            <div className={isMobileNavActive ? "mobile-nav-active" : ""}>
+                {/* Icon menu, nhấn vào sẽ toggle class */}
+                <i
+                    className={`bi ${isMobileNavActive ? "bi-x" : "bi-list"} mobile-nav-toggle d-xl-none`}
+                    onClick={toggleMobileNav}
+                ></i>
+
+                <div className="top-menu-bar">
+                    {/* Left Side - Logo */}
+                    <div className="logo-main-top">
+                        <img className="logo-image" src="img/layer-1-2.png" alt="Logo" />
+                        <div className="logo-3">Rabito English</div>
+                    </div>
+
+                    {/* Middle - Navigation Links */}
+                    <div className="actions">
+                        <div className="text-wrapper-15">About</div>
+                        <div className="text-wrapper-15">Community</div>
+
+                        {/* Features Dropdown */}
+                        <div className="frame-4" onClick={toggleFeaturesDropdown}>
+                            <div className="text-wrapper-16">Features</div>
+                            <img className="arrow-down" src="img/arrow-down-1.svg" alt="Arrow Down" />
+                            {isFeaturesDropdownOpen && (
+                                <div className="dropdown-1">
+                                    <div className="dropdown-item">
+                                        <Link
+                                            to="watch"
+                                            className="nav-link scrollto"
+                                            smooth={true}
+                                            duration={500}
+                                        >Watch & Listen</Link>
+                                    </div>
+                                    <div className="dropdown-item">
+                                        <Link
+                                            to="live"
+                                            className="nav-link scrollto"
+                                            smooth={true}
+                                            duration={500}
+                                        >Live Streaming Practice</Link>
+                                    </div>
+                                    <div className="dropdown-item">
+                                        <Link
+                                            to="pronunciation"
+                                            className="nav-link scrollto"
+                                            smooth={true}
+                                            duration={500}
+                                        >Pronunciation</Link>
+                                    </div>
+                                </div>
+
+                            )}
+                        </div>
+
+                        <div className="text-wrapper-15">Download</div>
+                    </div>
+
+                    {/* Right Side - Actions */}
+                    <div className="btns">
+                        <button className="login-btn">
+                            <p className="text-wrapper-17">Log in / Sign up</p>
+                        </button>
+                        <img className="line-2" src="img/line-1.svg" alt="Divider" />
+
+                        {/* Language Dropdown */}
+                        <div className="language-btn" onClick={toggleLanguageDropdown}>
+                            <div className="features">EN</div>
+                            <img className="arrow-down" src="img/arrow-down-1.svg" alt="Arrow Down" />
+                            {isLanguageDropdownOpen && (
+                                <div className="dropdown-2">
+                                    <div className="dropdown-item">English</div>
+                                    <div className="dropdown-item">Tiếng Việt</div>
+                                    <div className="dropdown-item">Japanese</div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Theme Switch */}
+                        <div className="light-dark-theme">
+                            <img className="moon" src="img/moon.svg" alt="Moon Icon" />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Side Menu for Mobile */}
+                <header id="header">
+                    <div className="d-flex flex-column">
+                        <div className="logo-main-header">
+                            <img className="logo-image" src="img/layer-1-2.png" alt="Logo" />
+                            <div className="logo-3">Rabito English</div>
+                        </div>
+                        <nav id="navbar" className="nav-menu navbar">
+                            <ul>
+                                <li>
+                                    <Link
+                                        to="about"
+                                        className="nav-link scrollto"
+                                        smooth={true}
+                                        duration={500}
+                                    >
+                                        <i className="bx bx-user"></i> <span>About</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="community"
+                                        className="nav-link scrollto"
+                                        smooth={true}
+                                        duration={500}
+                                    >
+                                        <i className="bx bx-file-blank"></i> <span>Community</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="features"
+                                        className="nav-link scrollto"
+                                        smooth={true}
+                                        duration={500}
+                                    >
+                                        <i className="bx bx-book-content"></i> <span>Features</span>
+                                    </Link>
+                                    <ul>
+                                        <li>
+                                            <Link
+                                                to="watch"
+                                                className="nav-link scrollto"
+                                                smooth={true}
+                                                duration={500}
+                                            >
+                                                <i className="bx bx-user"></i> <span>Watch</span>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="live"
+                                                className="nav-link scrollto"
+                                                smooth={true}
+                                                duration={500}
+                                            >
+                                                <i className="bx bx-file-blank"></i> <span>Live</span>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link
+                                                to="pronunciation"
+                                                className="nav-link scrollto"
+                                                smooth={true}
+                                                duration={500}
+                                            >
+                                                <i className="bx bx-book-content"></i> <span>Pronunciation</span>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <Link
+                                        to="download"
+                                        className="nav-link scrollto"
+                                        smooth={true}
+                                        duration={500}
+                                    >
+                                        <i className="bx bx-server"></i> <span>Download</span>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+        </nav >
+    );
+};
+
+export default Navbar;
