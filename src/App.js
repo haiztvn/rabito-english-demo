@@ -23,7 +23,7 @@ function App() {
         <section id="pronunciation">
           <Section4 />
         </section>
-        {/* <Footer /> */}
+        <Footer />
       </main>
 
     </div>
