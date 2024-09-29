@@ -604,9 +604,13 @@ h6 {
   color: #007BFF; /* Change color on hover */
 }
 
-@media (max-width: 1119px) {
+@media (max-width: 769px) {
   .contact {
       gap: 20px;
+  }
+
+  .column {
+    margin-right: 10px;
   }
 
   .footer-bottom {
@@ -621,7 +625,7 @@ h6 {
 
 }
 
-@media (max-width: 769px) {
+@media (max-width: 480px) {
   .footer-top {
       flex-direction: column;
       align-items: flex-start;
