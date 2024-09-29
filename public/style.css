@@ -12,6 +12,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
+  background-color: #f8f8f8;
 }
 
 a {
@@ -522,14 +523,131 @@ h6 {
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
+/* Default styles (large screens) */
+.footer {
+  padding: 20px;
+}
 
-@media (max-width: 1199px) {
-  #footer {
-    position: static;
-    width: auto;
-    padding-right: 20px 15px;
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact {
+  display: flex;
+  gap: 40px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.footer-copyright {
+  display: block;
+  font-weight: bold;
+}
+
+/* Privacy & Terms Section */
+.footer-privacy {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-weight: bold;
+}
+
+/* Line Style */
+.footer-line {
+  width: 100%; /* Set to 100% for responsiveness */
+  height: auto; /* Ensure it maintains aspect ratio */
+  margin: 20px auto; /* Center line with margin */
+}
+
+.text-wrapper {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(21, 209, 58);
+}
+
+.logo {
+  width: 250px;
+}
+
+.p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.column {
+  margin-right: 50px;
+}
+
+.column-title {
+  font-size: 18px; /* Font size for the column title */
+  font-weight: bold; /* Bold font for titles */
+  margin-bottom: 15px; /* Increase spacing below the title */
+}
+
+.column-links div {
+  font-size: 14px; /* Font size for links */
+  color: #555; /* Color for the links */
+  cursor: pointer; /* Change cursor to pointer */
+  margin-bottom: 20px; /* Increase spacing between each link */
+}
+
+/* Optional: Add a hover effect for better user experience */
+.column-links div:hover {
+  color: #007BFF; /* Change color on hover */
+}
+
+@media (max-width: 1119px) {
+  .contact {
+      gap: 20px;
+  }
+
+  .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  }
+
+  .footer-privacy {
+    display: none;
+  }
+
+}
+
+@media (max-width: 769px) {
+  .footer-top {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .contact {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  }
+
+  .footer-privacy {
+      display: none;
+  }
+
+  .footer-copyright {
+    text-align: right;
+    width: 100%;
   }
 }
+
 
 /*Test----------------------------------------*/
 .section-1 {
@@ -906,3 +1024,4 @@ h6 {
     width: 88%;
   }
 }
+
