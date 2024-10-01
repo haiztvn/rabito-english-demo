@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Link, animateScroll as scroll } from 'react-scroll';
 import Navbar from "./component/Navbar";
-import Footer from "./page/footer";
 import Section1 from "./page/section1";
 import Section2 from "./page/section2";
 import Section3 from "./page/section3";
 import Section4 from "./page/section4";
+import Download from "./page/download";
+import Footer from "./page/footer";
 function App() {
   return (
     <div>
@@ -23,7 +24,8 @@ function App() {
         <section id="pronunciation">
           <Section4 />
         </section>
-        {/* <Footer /> */}
+        <Download />
+        <Footer />
       </main>
 
     </div>
